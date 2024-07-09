@@ -9,17 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
-            $table->date('release_date');
-            $table->string('developer');
-            $table->string('code_language');
-            $table->string('link');
-            $table->string('thumb');
+            $table->text('description');
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->string('status')->default('active');  // esempi di status: active, completed, paused
             $table->timestamps();
         });
     }
@@ -27,7 +25,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('projects');
     }
