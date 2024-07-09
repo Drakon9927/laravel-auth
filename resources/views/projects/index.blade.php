@@ -14,4 +14,18 @@
     </div>
 </div> 
 @endforeach
+
+
+
+
+<style scoped>
+    body{
+        background-color: #222;
+    }
+    .card{
+        margin: 1.5rem
+    }
+</style>
+
 @endsection
+
