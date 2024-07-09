@@ -12,10 +12,8 @@ class Project extends Model
     protected $fillable = [
         'title',
         'description',
-        'release_date',
-        'developer',
-        'code_language',
-        'link',
-        'thumb',
+        'start_date',
+        'end_date',
+        'status',
     ];
 }
