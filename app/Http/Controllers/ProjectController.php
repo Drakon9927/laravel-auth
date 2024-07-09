@@ -36,9 +36,11 @@ class ProjectController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
-            'status' => 'required',
+            'release_date' => 'required',
+            'developer' => 'required',
+            'code_language' => 'required',
+            'link' => 'required',
+            'thumb' => 'required',
         ]);
         $newProject = Project::create($data);
         return redirect()->route('projects.show', $newProject);
