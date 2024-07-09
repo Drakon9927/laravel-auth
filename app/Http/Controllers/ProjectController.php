@@ -13,7 +13,11 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $projectList = Project::all();
+        $data = [
+            'project' => $projectList,
+        ];
+        return view('projects.index', $data);
     }
 
     /**
@@ -21,7 +25,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
@@ -29,7 +33,17 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'release_date' => 'required',
+            'developer' => 'required',
+            'code_language' => 'required',
+            'link' => 'required',
+            'thumb' => 'required',
+        ]);
+        $newProject = Project::create($data);
+        return redirect()->route('projects.show', $newProject);
     }
 
     /**
