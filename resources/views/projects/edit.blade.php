@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-12">
 
-                <form method="POST" action="{{ route('projects.edit') }}">
+                <form method="POST" action="{{ route('projects.update') }}">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
