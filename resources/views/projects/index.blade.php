@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
 @foreach ($projects as $project)  
 <div class="card" style="width: 18rem;">
    
@@ -32,3 +33,33 @@
 </style>
 
 @endsection
+=======
+    <div class="container-fluid d-flex flex-wrap">
+        @foreach ($project as $item)
+            <div class="card" style="width: 18rem;">
+                {{-- <img src="..." class="card-img-top" alt="..."> --}}
+                <div class="card-body">
+                    <h5 class="card-title"> {{ $item['title'] }} </h5>
+                    <p class="card-text"> {{ $item['description'] }} </p>
+                    <p class="card-text"> {{ $item['start_date'] }} </p>
+                    <p class="card-text"> {{ $item['end_date'] }} </p>
+                    <p class="card-text"> {{ $item['status'] }} </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+
+
+    <style scoped>
+        body {
+            background-color: #222;
+        }
+
+        .card {
+            margin: 1.5rem
+        }
+    </style>
+@endsection
+>>>>>>> 317ab8df57a11f7a20f8e26068fdc0b2c6ebd76a
