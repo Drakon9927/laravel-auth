@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
 use App\Http\Controllers\ProjectController;
+use App\Models\Project;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,13 @@ use App\Http\Controllers\ProjectController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $projectList = Project::all();
+    $data = [
+        'project' => $projectList
+    ];
+
+    return view('welcome', $data);
 });
 
 
