@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 
@@ -31,7 +32,7 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProjectRequest $request)
+    public function store(Request $request)
     {
         $data = $request->validate([
             'title' => 'required',
@@ -40,8 +41,10 @@ class ProjectController extends Controller
             'end_date' => 'required',
             'status' => 'required',
         ]);
-        $newProject = Project::create($data);
-        return redirect()->route('projects.show', $newProject);
+        $newGame = new Project();
+        $newGame->fill($data);
+        $newGame->save();
+        return redirect()->route('projects.index', $newGame);
     }
 
     /**
