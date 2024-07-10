@@ -39,7 +39,7 @@ class ProjectController extends Controller
             'description' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
-            'status' => 'required',
+            'status' => 'required'
         ]);
         $newGame = new Project();
         $newGame->fill($data);
