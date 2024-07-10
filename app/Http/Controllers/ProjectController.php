@@ -18,7 +18,7 @@ class ProjectController extends Controller
         $data = [
             'project' => $projectList,
         ];
-        return view('projects.index', $data);
+        return view('admin.projects.index', $data);
     }
 
     /**
@@ -26,7 +26,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        return view('admin.projects.create');
     }
 
     /**
@@ -44,7 +44,7 @@ class ProjectController extends Controller
         $newProject = new Project();
         $newProject->fill($data);
         $newProject->save();
-        return redirect()->route('projects.index', $newProject);
+        return redirect()->route('admin.projects.index', $newProject);
     }
 
     /**
@@ -55,7 +55,7 @@ class ProjectController extends Controller
         $data = [
             'project' => $project
         ];
-        return view('projects.show', $data);
+        return view('admin.projects.show', $data);
     }
 
     /**
@@ -66,7 +66,7 @@ class ProjectController extends Controller
         $data = [
             'project' => $project
         ];
-        return view('projects.edit', $data);
+        return view('admin.projects.edit', $data);
     }
 
     /**
@@ -82,7 +82,7 @@ class ProjectController extends Controller
             'status' => 'required'
         ]);
         $project->update($data);
-        return redirect()->route('projects.show', $project);
+        return redirect()->route('admin.projects.show', $project);
     }
 
     /**
@@ -91,6 +91,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return redirect()->route('projects.index');
+        return redirect()->route('admin.projects.index');
     }
 }
