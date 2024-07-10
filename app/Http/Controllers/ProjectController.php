@@ -41,10 +41,10 @@ class ProjectController extends Controller
             'end_date' => 'required',
             'status' => 'required'
         ]);
-        $newGame = new Project();
-        $newGame->fill($data);
-        $newGame->save();
-        return redirect()->route('projects.index', $newGame);
+        $newProject = new Project();
+        $newProject->fill($data);
+        $newProject->save();
+        return redirect()->route('projects.index', $newProject);
     }
 
     /**
@@ -52,7 +52,10 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        $data = [
+            'project' => $project
+        ];
+        return view('projects.show', $data);
     }
 
     /**
@@ -60,7 +63,10 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        $data = [
+            'project' => $project
+        ];
+        return view('projects.edit', $data);
     }
 
     /**
@@ -68,7 +74,15 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'status' => 'required'
+        ]);
+        $project->update($data);
+        return redirect()->route('projects.show', $project);
     }
 
     /**
@@ -76,6 +90,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('projects.index');
     }
 }
