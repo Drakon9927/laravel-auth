@@ -24,6 +24,7 @@
 
                 <form method="POST" action="{{ route('projects.store') }}">
                     @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <label class="form-label">title</label>
                         <input type="text" class="form-control" name="title" required value="{{ old('title', $project->title) }}">
