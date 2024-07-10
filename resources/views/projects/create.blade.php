@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-12">
 
-                <form method="POST" action="{{ route('projects.store') }}">
+                <form method="POST" action="{{ route('admin.projects.store') }}">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">title</label>

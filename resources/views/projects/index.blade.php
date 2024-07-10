@@ -11,7 +11,7 @@
                     <p class="card-text"> {{ $item['start_date'] }} </p>
                     <p class="card-text"> {{ $item['end_date'] }} </p>
                     <p class="card-text"> {{ $item['status'] }} </p>
-                    <a href="{{route('projects.show', $item->id)}}" class="btn btn-primary">MORE</a>
+                    <a href="{{route('admin.projects.show', $item->id)}}" class="btn btn-primary">MORE</a>
                 </div>
             </div>
         @endforeach
