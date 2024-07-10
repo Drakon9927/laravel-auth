@@ -17,7 +17,7 @@ class ProjectSeeder extends Seeder
                 'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),  
                 'description' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),  
                 'start_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
-                'end_date' => $faker->date($format = 'Y-m-d', $max = '2023'),
+                'end_date' => $faker->date($format = 'Y-m-d', $max = '2025'),
                 'status' => $faker->randomElement(['active', 'completed', 'pending'])  
             ]);
         }
