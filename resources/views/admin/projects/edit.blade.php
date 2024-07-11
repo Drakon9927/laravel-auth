@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Aggiungi un Project</h1>
+                <h1>Modifica un Project</h1>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
