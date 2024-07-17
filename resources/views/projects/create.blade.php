@@ -22,41 +22,47 @@
         <div class="row">
             <div class="col-12">
 
-                <form method="POST" action="{{ route('projects.store') }}">
+                <form method="POST" action="{{ route('projects.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label class="form-label">title</label>
+                        <label class="form-label">Title</label>
                         <input type="text" class="form-control" name="title" required value="{{ old('title') }}">
                         @error('title')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">description</label>
-                        <textarea type="text" class="form-control" name="description" required>{{ old('description') }}</textarea>
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" name="description" required>{{ old('description') }}</textarea>
                         @error('description')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">start_date</label>
-                        <input type="text" class="form-control" name="start_date" required
-                            value="{{ old('start_date') }}">
+                        <label class="form-label">Start Date</label>
+                        <input type="date" class="form-control" name="start_date" required value="{{ old('start_date') }}">
                         @error('start_date')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">end_date</label>
-                        <input type="text" class="form-control" name="end_date" required value="{{ old('end_date') }}">
+                        <label class="form-label">End Date</label>
+                        <input type="date" class="form-control" name="end_date" required value="{{ old('end_date') }}">
                         @error('end_date')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">status</label>
-                        <textarea type="text" class="form-control" name="status" required>{{ old('status') }}</textarea>
+                        <label class="form-label">Status</label>
+                        <textarea class="form-control" name="status" required>{{ old('status') }}</textarea>
                         @error('status')
+                            <div>{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Cover Image</label>
+                        <input type="file" class="form-control" name="cover_image">
+                        @error('cover_image')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
