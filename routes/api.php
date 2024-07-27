@@ -13,4 +13,6 @@ Route::get('/projects/{id}', [ProjectController::class, 'show']);
 // Endpoint per ottenere l'utente autenticato, protetto da Sanctum
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+
+Route::post('/contacts', [LeadController::class, 'store']);
 });
